@@ -1,24 +1,27 @@
 import logo from './logo.svg';
+import { Routes, Route } from "react-router-dom";
 import './App.css';
+import { Scene } from './components/Scene/Scene';
+import { NavBar } from './components/NavBar/NavBar';
+import { NotFound } from './components/NotFound/NotFound';
+import { Chat } from './components/Chat/Chat';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Routes>
+      <Route path='/' element={<NavBar />}>
+        <Route index element={<Scene />} />
+        <Route path="chat" element={<Chat />}>
+          <Route path=":chatID" element={<Chat />} />
+        </Route>
+        <Route path='*' element={<NotFound />} />
+      </Route>
+      
+    </Routes>
+    </>
+    
   );
 }
 

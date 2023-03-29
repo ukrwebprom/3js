@@ -1,0 +1,54 @@
+.navbar {
+    display:flex;
+    justify-content: space-between;
+    padding: 5px 10px 5px 20px;
+    background-color:white;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index: 10;
+    width:100%;
+    box-sizing: border-box;
+    border-bottom: 1px solid black;
+    &.mainpage {
+        background-color: transparent;
+        border:0;
+    }
+}
+.logo {
+    display:inline-flex;
+    align-items: center;
+    gap:10px;
+    cursor: pointer;
+    color:darkturquoise;
+    & .title {
+        font-size: 16px;
+        font-weight: 900;
+    }
+}
+.signin-btn {
+    background-color: transparent;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    gap: 10px;
+    border:0;
+    cursor:pointer;
+    color:black;
+    &.mainpage {
+        color:white;
+    }
+    & .content {
+        display:flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    & span {
+        font-weight: 800;
+      }
+}
+.user-img {
+    width:40px;
+    border-radius:50%;
+}

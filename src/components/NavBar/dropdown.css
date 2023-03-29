@@ -1,0 +1,19 @@
+.dropdown {
+  position: absolute;
+  top: 40px;
+  right: 10px;
+  background-color: white;
+  padding: 15px;
+  list-style: none;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.dropdown li {
+  cursor: pointer;
+  font-weight: 800;
+}
+.dropdown li:hover {
+  color: darkturquoise;
+}/*# sourceMappingURL=dropdown.css.map */

@@ -1,0 +1,51 @@
+.message-box {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.message-box__img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.message-box__content {
+  display: flex;
+  align-items: center;
+}
+
+.message-box__auth {
+  padding: 0;
+  margin: 0 0 7px 0;
+  font-size: 12px;
+  font-weight: 800;
+  color: #ddd;
+}
+
+.message-box__text {
+  padding: 0;
+  margin: 0;
+}
+.message-box__text.WHISPER {
+  font-size: 36px;
+  font-weight: 100;
+  color: #999;
+}
+.message-box__text.NORMAL {
+  font-size: 36px;
+  font-weight: 400;
+}
+.message-box__text.ALOUD {
+  font-size: 36px;
+  font-weight: 900;
+}
+.message-box__text.SCREAM {
+  font-size: 50px;
+  font-weight: 900;
+}
+.message-box__text.CRY {
+  font-size: 50px;
+  font-weight: 800;
+  color: red;
+}/*# sourceMappingURL=message.css.map */
