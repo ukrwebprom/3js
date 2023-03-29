@@ -17,7 +17,7 @@ export const UserProvider = ({ children }) => {
   }, []); */
 
   useEffect(() => {
-    if (chatname !== "") localStorage.setItem("chatname", chatname);
+    if (chatname) localStorage.setItem("chatname", chatname);
   }, [chatname]);
 
   useEffect(() => {
