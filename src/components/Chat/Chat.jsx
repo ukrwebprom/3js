@@ -12,7 +12,7 @@ export const Chat = () => {
     useEffect(() => {
         if(chatID) setChatID(chatID);
         else setChatID('main');
-    }, [])
+    }, [chatID, setChatID])
     
     return(
         <>

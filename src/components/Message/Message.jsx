@@ -6,7 +6,7 @@ export const Message = ({avatar, text, name, type}) => {
     }
     return(
         <div className="message-box">
-            <img src={avatar} className={classNames("message-box__img")} />
+            <img src={avatar} className={classNames("message-box__img")} alt={name}/>
             <div className="message-box__content">
                 <p className={classNames("message-box__text")}>{text}</p>
 {/*                 <p className={classNames("message-box__auth")}>{name}</p> */}

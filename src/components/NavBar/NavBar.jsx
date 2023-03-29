@@ -43,7 +43,7 @@ export const NavBar = () => {
             </div>
             
             {user? 
-            <button className={clsx("signin-btn", isHome && "mainpage")}  onClick={toggleDropDown}><div className="content">Chat name<span>{chatname}</span></div><img src={user.photoURL} className="user-img"/></button> :
+            <button className={clsx("signin-btn", isHome && "mainpage")}  onClick={toggleDropDown}><div className="content">Chat name<span>{chatname}</span></div><img src={user.photoURL} className="user-img" alt={user.displayName} /></button> :
             <button className={clsx("signin-btn", isHome && "mainpage")} onClick={logIn}>Sign In <FcGoogle size="30"/></button>
             }
             

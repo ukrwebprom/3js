@@ -1,8 +1,5 @@
-import React, { useRef, useState } from 'react'
-import { Link } from 'react-router-dom';
+import React from 'react'
 import { useUser } from "../../userContext";
-import { SetChatName } from '../SetChatName/SetChatName';
-import { SignInMessage } from '../SignInMessage/SignInMessage';
 import { AddChatBtn } from '../AddChatBtn/AddChatBtn';
 import './scene.scss';
 
@@ -35,7 +32,3 @@ export const Scene = () => {
     </>
   );
 };
-
-        {/* <SignInMessage>
-        Please <span onClick={onClickLogin} className="login-link">SignIn</span> to use WLCh.
-        </SignInMessage> */}

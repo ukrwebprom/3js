@@ -1,5 +1,5 @@
 import './chatbox.scss';
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useUser } from "../../userContext";
 import {
   query,
