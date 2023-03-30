@@ -11,20 +11,20 @@ import { RiSendPlaneLine } from 'react-icons/ri';
 import Slider  from 'rc-slider';
 import 'rc-slider/assets/index.css';
 
-const MessageTypes = {
+/* const MessageTypes = {
   NORMAL: "Say normally",
   WHISPER: "Whisper",
   ALOUD: "Aloud",
   SCREAM: "Scream",
   CRY: "Hysterical cry"
-};
-const createSliderWithTooltip = Slider.createSliderWithTooltip;
+}; */
+/* const createSliderWithTooltip = Slider.createSliderWithTooltip; */
 export const SendMessage = () => {
 
   const { user, logIn, chatID } = useUser();
   const text = useRef("");
   const [isWritten, setIsWritten] = useState(false);
-  const [messageType, setMessageType] = useState('NORMAL');
+/*   const [messageType, setMessageType] = useState('NORMAL'); */
 
   const handleChange = (evt) => {
     text.current = evt.target.value;
