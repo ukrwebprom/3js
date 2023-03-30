@@ -43,7 +43,7 @@ export const SendMessage = () => {
       <h3 className="send-title">Say here</h3>
       <ContentEditable
         html={message}
-        onChange={evt => console.log(evt.target.value)}
+        onChange={evt => setMessage(evt.target.value)}
         className="typearea"
       />
 

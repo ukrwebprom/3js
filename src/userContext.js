@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { auth } from "./firebase_setup/firebase";
-import { GoogleSignIn } from "./firebase_setup/firebase";
+import { GoogleSignIn, GoogleSignOut } from "./firebase_setup/firebase";
 /* import { useAuthState } from "react-firebase-hooks/auth"; */
 
 
@@ -14,9 +14,6 @@ export const UserProvider = ({ children }) => {
   const [chatname, setChatname] = useState(() => localStorage.getItem("chatname"));
   const [chatID, setChatID] = useState(() => "main");
 
-/*   useEffect(() => {
-    setChatname(localStorage.getItem("chatname"));
-  }, []); */
 
   useEffect(() => {
     if (chatname) localStorage.setItem("chatname", chatname);
@@ -28,13 +25,12 @@ export const UserProvider = ({ children }) => {
   }, [user, chatname]);
 
   const logIn = async () => {
-/*     const provider = new GoogleAuthProvider();
-    signInWithRedirect(auth, provider); */
     const user = await GoogleSignIn();
     setUser(user);
   };
   const logOut = () => {
-    auth.signOut();
+    GoogleSignOut();
+    setUser(null);
   };
 
   return (
