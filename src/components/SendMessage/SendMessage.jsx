@@ -64,7 +64,7 @@ export const SendMessage = () => {
           />
         </div>
 
-        <button className="send-btn" disabled={message == ''} onClick={Send}>
+        <button className="send-btn" disabled={message === ''} onClick={Send}>
           <RiSendPlaneLine size="30" />
         </button>
       </div>
