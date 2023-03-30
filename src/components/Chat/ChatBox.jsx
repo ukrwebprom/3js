@@ -40,7 +40,7 @@ export const ChatBox = () => {
     return(
         <div className="chatbox">
             {messages.map(({avatar, name, text, id, messageType}) => (
-                <Message avatar={avatar} name={name} text={text} key={id} type={messageType} />
+                <Message avatar={avatar} name={name} text={text} key={id} type={messageType} >{text}</Message>
             ))}
         </div>
     ) 

@@ -6,7 +6,7 @@ import { ChatBox } from "./ChatBox"
 
 export const Chat = () => {
 
-    const { setChatID } = useUser();
+    const { user, setChatID } = useUser();
     const { chatID } = useParams();
 
     useEffect(() => {
@@ -17,7 +17,7 @@ export const Chat = () => {
     return(
         <>
         <ChatBox />
-        <SendMessage />
+        {user && (<SendMessage />)}
         </>
         
     )

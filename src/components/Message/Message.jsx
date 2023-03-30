@@ -1,5 +1,5 @@
 import './message.scss';
-export const Message = ({avatar, text, name, type}) => {
+export const Message = ({avatar, text, name, type, children}) => {
     const MessageTypes = [
         "WHISPER",
         "NORMAL",
@@ -15,7 +15,8 @@ export const Message = ({avatar, text, name, type}) => {
         <div className="message-box">
             <img src={avatar} className={classNames("message-box__img")} alt={name}/>
             <div className="message-box__content">
-                <p className={classNames("message-box__text")}>{text}</p>
+            {children}
+{/*                 <p className={classNames("message-box__text")}></p> */}
 {/*                 <p className={classNames("message-box__auth")}>{name}</p> */}
             </div>
         </div>
