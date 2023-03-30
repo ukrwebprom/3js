@@ -8,6 +8,8 @@ import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { FcGoogle } from 'react-icons/fc';
 import { BiMessageError } from 'react-icons/bi';
 import { RiSendPlaneLine } from 'react-icons/ri';
+import Slider  from 'rc-slider';
+import 'rc-slider/assets/index.css';
 
 const MessageTypes = {
   NORMAL: "Say normally",
@@ -16,8 +18,9 @@ const MessageTypes = {
   SCREAM: "Scream",
   CRY: "Hysterical cry"
 };
-
+const createSliderWithTooltip = Slider.createSliderWithTooltip;
 export const SendMessage = () => {
+
   const { user, logIn, chatID } = useUser();
   const text = useRef("");
   const [isWritten, setIsWritten] = useState(false);
@@ -49,6 +52,7 @@ export const SendMessage = () => {
     <div className="send-container">
       {user ? (
         <>
+          <h3 className="send-title">Say here</h3>
           <ContentEditable
             html={text.current}
             onBlur={handleBlur}
@@ -57,7 +61,20 @@ export const SendMessage = () => {
           />
 
             <div className="send-form">
-            <form>
+            <div className="slider-wrapper">
+            <Slider min={0} defaultValue={20} marks={{ 
+              0: "WHISPER",
+              25: "NORMAL",
+              50: "ALOUD",
+              75: "SCREAM",
+              100: "CRY" 
+              }} 
+              step={null}
+              trackStyle={{ backgroundColor: 'darkturquoise'}}
+               />
+            </div>
+            
+            {/* <form>
             <label><input
                 type="radio"
                 checked={messageType === "WHISPER"}
@@ -93,7 +110,7 @@ export const SendMessage = () => {
                 value = {MessageTypes.CRY}
                 onChange={() => setMessageType("CRY")}
               /> {MessageTypes.CRY}</label>
-            </form>
+            </form> */}
             <button  className="send-btn" disabled={!isWritten} onClick={Send}><RiSendPlaneLine  size="30"/></button>
             </div>
           </>

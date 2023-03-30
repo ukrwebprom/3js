@@ -5,9 +5,15 @@
 }
 
 .message-box__img {
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
+}
+@media screen and (min-width: 750px) {
+  .message-box__img {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 .message-box__content {
