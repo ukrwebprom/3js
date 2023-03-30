@@ -28,8 +28,8 @@ export const UserProvider = ({ children }) => {
   }, [user, chatname]);
 
   const logIn = async () => {
-    const provider = new GoogleAuthProvider();
-    signInWithRedirect(auth, provider);
+/*     const provider = new GoogleAuthProvider();
+    signInWithRedirect(auth, provider); */
     const user = await GoogleSignIn();
     setUser(user);
   };
