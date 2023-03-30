@@ -1,7 +1,14 @@
 import './message.scss';
 export const Message = ({avatar, text, name, type}) => {
+    const MessageTypes = [
+        "WHISPER",
+        "NORMAL",
+        "ALOUD",
+        "SCREAM",
+        "CRY"
+      ];
     const classNames = itemClass => {
-        const c = [itemClass, type];
+        const c = [itemClass, MessageTypes[type]];
         return c.join(" ");
     }
     return(

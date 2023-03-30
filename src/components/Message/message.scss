@@ -42,11 +42,14 @@
     &.SCREAM {
         font-size: 50px;
         font-weight: 900;
+        text-shadow: 2px 1px #ff0033;
+        color:#ff9900;
     }
     &.CRY {
         font-size: 50px;
         font-weight: 800;
         color:red;
+        
     }
 
 }
