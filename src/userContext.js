@@ -1,5 +1,4 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import { auth } from "./firebase_setup/firebase";
 import { GoogleSignIn, GoogleSignOut } from "./firebase_setup/firebase";
 /* import { useAuthState } from "react-firebase-hooks/auth"; */
 
