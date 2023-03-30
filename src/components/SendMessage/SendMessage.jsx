@@ -24,7 +24,7 @@ export const SendMessage = () => {
   const { user, logIn, chatID } = useUser();
   const text = useRef("");
   const [isWritten, setIsWritten] = useState(false);
-/*   const [messageType, setMessageType] = useState('NORMAL'); */
+  const [messageType] = useState('NORMAL');
 
   const handleChange = (evt) => {
     text.current = evt.target.value;
