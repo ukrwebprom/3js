@@ -12,10 +12,10 @@
     background-color: white;
 }
 .send-form {
-    //padding:10px;
+    padding:15px;
     display:flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
     & form {
         //flex-grow: 1;
         display:flex;
@@ -52,10 +52,17 @@
 .send-title {
     margin:0;
     font-weight: 900;
-    color:darkturquoise;
+    color:black;
 }
 .slider-wrapper {
     width:70%;
     max-width: 350px;
-    padding:15px;
+    
+    & p {
+        margin:0 0 10px -5px;
+    }
+
+    & span {
+        color:darkturquoise;
+    }
 }

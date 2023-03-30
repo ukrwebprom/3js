@@ -8,23 +8,23 @@ import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { FcGoogle } from 'react-icons/fc';
 import { BiMessageError } from 'react-icons/bi';
 import { RiSendPlaneLine } from 'react-icons/ri';
-import Slider  from 'rc-slider';
+import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 
-/* const MessageTypes = {
-  NORMAL: "Say normally",
-  WHISPER: "Whisper",
-  ALOUD: "Aloud",
-  SCREAM: "Scream",
-  CRY: "Hysterical cry"
-}; */
-/* const createSliderWithTooltip = Slider.createSliderWithTooltip; */
+const MessageTypes = [
+  "Whisper",
+  "Say normally",
+  "Aloud",
+  "Scream",
+  "Hysterical cry"
+];
+
 export const SendMessage = () => {
 
   const { user, logIn, chatID } = useUser();
   const text = useRef("");
   const [isWritten, setIsWritten] = useState(false);
-  const [messageType] = useState('NORMAL');
+  const [messageType, setMessageType] = useState(1);
 
   const handleChange = (evt) => {
     text.current = evt.target.value;
@@ -33,7 +33,9 @@ export const SendMessage = () => {
   const handleBlur = () => {
     console.dir(text.current);
   };
-
+  const onVolumeChange = e => {
+    setMessageType(e);
+  }
   const Send = async () => {
     const { uid, displayName, photoURL } = user;
     await addDoc(collection(db, "messages"), {
@@ -62,55 +64,16 @@ export const SendMessage = () => {
 
             <div className="send-form">
             <div className="slider-wrapper">
-            <Slider min={0} defaultValue={20} marks={{ 
-              0: "WHISPER",
-              25: "NORMAL",
-              50: "ALOUD",
-              75: "SCREAM",
-              100: "CRY" 
-              }} 
-              step={null}
+              <p>Loudness: <span>{MessageTypes[messageType]}</span></p>
+            <Slider min={0} max={4} defaultValue={1} 
+              dots
+              onChange = {onVolumeChange} 
+              step={1}
+              dotStyle={{ borderColor: 'darkturquoise' }}
               trackStyle={{ backgroundColor: 'darkturquoise'}}
                />
             </div>
             
-            {/* <form>
-            <label><input
-                type="radio"
-                checked={messageType === "WHISPER"}
-                name="type"
-                value = {MessageTypes.WHISPER}
-                onChange={() => setMessageType("WHISPER")}
-              /> {MessageTypes.WHISPER}</label>
-            <label><input
-                type="radio"
-                checked={messageType === "NORMAL"}
-                name="type"
-                value = {MessageTypes.NORMAL}
-                onChange={() => setMessageType("NORMAL")}
-              /> {MessageTypes.NORMAL}</label>
-              <label><input
-                type="radio"
-                checked={messageType === "ALOUD"}
-                name="type"
-                value = {MessageTypes.ALOUD}
-                onChange={() => setMessageType("ALOUD")}
-              /> {MessageTypes.ALOUD}</label>
-              <label><input
-                type="radio"
-                checked={messageType === "SCREAM"}
-                name="type"
-                value = {MessageTypes.SCREAM}
-                onChange={() => setMessageType("SCREAM")}
-              /> {MessageTypes.SCREAM}</label>
-              <label><input
-                type="radio"
-                checked={messageType === "CRY"}
-                name="type"
-                value = {MessageTypes.CRY}
-                onChange={() => setMessageType("CRY")}
-              /> {MessageTypes.CRY}</label>
-            </form> */}
             <button  className="send-btn" disabled={!isWritten} onClick={Send}><RiSendPlaneLine  size="30"/></button>
             </div>
           </>

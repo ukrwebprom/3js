@@ -13,9 +13,10 @@
 }
 
 .send-form {
+  padding: 15px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
 }
 .send-form form {
   display: flex;
@@ -55,11 +56,16 @@
 .send-title {
   margin: 0;
   font-weight: 900;
-  color: darkturquoise;
+  color: black;
 }
 
 .slider-wrapper {
   width: 70%;
   max-width: 350px;
-  padding: 15px;
+}
+.slider-wrapper p {
+  margin: 0 0 10px -5px;
+}
+.slider-wrapper span {
+  color: darkturquoise;
 }/*# sourceMappingURL=sendmessage.css.map */
