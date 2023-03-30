@@ -48,6 +48,7 @@ export const SendMessage = () => {
       uid,
     });
     text.current = "";
+    setIsWritten(false);
   };
 
   return (
@@ -80,7 +81,6 @@ export const SendMessage = () => {
       ) : (
         <>
           <p className="no-login-message"><BiMessageError  size="25"/> Please Sign In to send chat messages</p>
-          <button className="signin-btn" onClick={logIn}>Sign In <FcGoogle size="30"/></button>
         </>
       )}
     </div>
