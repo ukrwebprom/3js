@@ -1,5 +1,5 @@
 import "./sendmessage.scss";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useUser } from "../../userContext";
 import { db } from "../../firebase_setup/firebase";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
@@ -41,9 +41,6 @@ export const SendMessage = () => {
     setMessage('');
     
   };
-  const confirm = e => {
-    console.dir(String(e));
-  }
 
   console.dir(Classes);
   return (
