@@ -66,3 +66,11 @@
         color:darkturquoise;
     }
 }
+.edutableInput {
+    & span {
+        font-size:20px;
+        color:red;
+    }
+    
+    padding:10px;
+}

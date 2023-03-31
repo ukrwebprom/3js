@@ -68,4 +68,12 @@
 }
 .slider-wrapper span {
   color: darkturquoise;
+}
+
+.edutableInput {
+  padding: 10px;
+}
+.edutableInput span {
+  font-size: 20px;
+  color: red;
 }/*# sourceMappingURL=sendmessage.css.map */

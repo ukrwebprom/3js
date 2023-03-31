@@ -2,6 +2,8 @@
     display:flex;
     gap:10px;
     align-items:flex-start;
+    max-width:90%;
+    word-wrap:break-word;
 }
 .message-box__img {
     width: 30px;
@@ -24,8 +26,10 @@
     color:#ddd;
 }
 .message-box__text {
+    font-family: 'Montserrat', sans-serif;
     padding:0;
     margin:0;
+    
     &.WHISPER {
         font-size: 36px;
         font-weight: 100;

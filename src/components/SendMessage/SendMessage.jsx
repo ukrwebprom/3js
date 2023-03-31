@@ -1,12 +1,13 @@
 import "./sendmessage.scss";
-import ContentEditable from "react-contenteditable";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useUser } from "../../userContext";
 import { db } from "../../firebase_setup/firebase";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { RiSendPlaneLine } from "react-icons/ri";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
+import '@blueprintjs/core/lib/css/blueprint.css';
+import { EditableText, Classes } from "@blueprintjs/core";
 
 const MessageTypes = [
   "Whisper",
@@ -24,29 +25,44 @@ export const SendMessage = () => {
   const onVolumeChange = (e) => {
     setMessageType(e);
   };
-  const Send = async () => {
+
+
+  const Send = async (e) => {
+    if(e === "") return
     const { uid, displayName, photoURL } = user;
-    await addDoc(collection(db, "messages"), {
-      text: message,
+    await addDoc(collection(db, chatID), {
+      text: e,
       name: displayName,
       avatar: photoURL,
       createdAt: serverTimestamp(),
-      chatID,
       messageType,
       uid,
     });
     setMessage('');
+    
   };
+  const confirm = e => {
+    console.dir(String(e));
+  }
 
+  console.dir(Classes);
   return (
     <div className="send-container">
-      <h3 className="send-title">Say here</h3>
-      <ContentEditable
-        html={message}
-        onChange={evt => setMessage(evt.target.value)}
-        className="typearea"
-      />
+{/*       <h3 className="send-title">Say here</h3> */}
 
+        <EditableText 
+                    alwaysRenderInput = {true}
+                    multiline={true} 
+                    minLines={1} 
+                    maxLines={6} 
+                    intent="primary" 
+                    placeholder="Say here  ..." 
+                    defaultValue = ""
+                    confirmOnEnterKey
+                    onChange={setMessage}
+                    value = {message}
+                    onConfirm={Send}
+                />
       <div className="send-form">
         <div className="slider-wrapper">
           <p>
