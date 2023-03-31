@@ -24,7 +24,7 @@ export const UserProvider = ({ children }) => {
   }, [user, chatname]);
 
   const logIn = async () => {
-    const user = await GoogleSignIn();
+    await GoogleSignIn();
 /*     setUser(user); */
   };
   const logOut = () => {
